@@ -56,12 +56,24 @@ Dask es una libreria de Python de codigo abierto, que sirve para realizar comput
 - Computo concurrente: Permite el manejo de diferentes que se pueden llevar a cabo de manera paralela para reducir el tiempo de procesamiento, Dask hace uso de los nucleos que el CPU permita asignar tareas para poder reducir la carga de trabajo.
 - Tareas dinamicas usando grafos: Dask usa una representacion de un grafo aciclico, es decir, cada nodo representa una de las operaciones en las que se dividio la tarea y cada enlace representa la dependencia entre ellas. Este grafo se construye de manera dinamica lo cual ayuda a optimizar las operaciones que se llevan en paralelo
 
-### Instalacion
+# ***Instalacion de Dask***
 
 Para la instalacion debemos usar el instalador de paquetes de Python (pip) e introducir el siguiente comando:
 
 ```python
 pip install dask
+```
+# ***Creando un Dataset Grande***
+
+Generamos un conjunto de datos grande utilizando NumPy:
+```python
+import numpy as np
+import dask.array as da
+import time
+
+# Crear un gran conjunto de datos aleatorio
+data_size = 10**8
+large_array = np.random.rand(data_size)
 ```
 
 

@@ -45,3 +45,10 @@ Las características con las que cuenta el dataset son:
 | src_bytes| Cantidad de bytes enviados desde la IP de origen.                            |
 | label    | Etiqueta que indica si el tráfico es normal o pertenece a una botnet (tráfico malicioso). |
 | Family   | Especie de botnet detectada (ej. Neris, Rbot, Virut, Murlo, etc.).           |
+
+---
+
+# *** DASK, Libreria de Python  ***
+
+Dask es una libreria de Python de codigo abierto, que sirve para realizar computo paralelo, esta libreria permite el uso optimo deL CPU asi como la administracion de memoria eficiente. En particular se usa para procesar conjuntos de datos muy grandes donde el tiempo de procesamiento implica deficiencias.
+

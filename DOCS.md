@@ -52,3 +52,9 @@ Las características con las que cuenta el dataset son:
 
 Dask es una libreria de Python de codigo abierto, que sirve para realizar computo paralelo, esta libreria permite el uso optimo deL CPU asi como la administracion de memoria eficiente. En particular se usa para procesar conjuntos de datos muy grandes donde el tiempo de procesamiento implica deficiencias.
 
+### Algunas caracteristicas de Dask son:
+- Computo concurrente: Permite el manejo de diferentes que se pueden llevar a cabo de manera paralela para reducir el tiempo de procesamiento, Dask hace uso de los nucleos que el CPU permita asignar tareas para poder reducir la carga de trabajo.
+- Tareas dinamicas usando grafos: Dask usa una representacion de un grafo aciclico, es decir, cada nodo representa una de las operaciones en las que se dividio la tarea y cada enlace representa la dependencia entre ellas. Este grafo se construye de manera dinamica lo cual ayuda a optimizar las operaciones que se llevan en paralelo
+
+
+

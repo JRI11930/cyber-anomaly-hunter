@@ -63,17 +63,15 @@ Para la instalacion debemos usar el instalador de paquetes de Python (pip) e int
 ```python
 pip install dask
 ```
-# ***Creando un Dataset Grande***
+## ***Creando un DataFrame Grande***
 
-Generamos un conjunto de datos grande utilizando NumPy:
+Vamos a generar un conjunto de datos grande utilizando pandas y convertirlo en un DataFrame de Dask:
 ```python
-import numpy as np
-import dask.array as da
-import time
-
-# Crear un gran conjunto de datos aleatorio
-data_size = 10**8
-large_array = np.random.rand(data_size)
+# Crear un DataFrame grande con pandas
+num_rows = 10**7
+num_cols = 5
+data = {f"col_{i}": np.random.rand(num_rows) for i in range(num_cols)}
+df = pd.DataFrame(data)
 ```
 
 

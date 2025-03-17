@@ -73,5 +73,33 @@ num_cols = 5
 data = {f"col_{i}": np.random.rand(num_rows) for i in range(num_cols)}
 df = pd.DataFrame(data)
 ```
+## ***Cálculo Secuencial con pandas***
 
+Primero, realizaremos un cálculo secuencial utilizando pandas para calcular la media de los datos:
+```python
+# Cálculo secuencial usando pandas
+start_time = time.time()
+mean_sequential = df.mean()
+sequential_time = time.time() - start_time
 
+print(f"Media secuencial:\n{mean_sequential}\nTiempo: {sequential_time} segundos")
+```
+## ***Cálculo Paralelo con Dask***
+
+Ahora, utilizaremos Dask para dividir el conjunto de datos en partes (particiones) y realizar el cálculo de manera paralela:
+```python
+# Convertir el DataFrame de pandas a un DataFrame de Dask
+ddf = dd.from_pandas(df, npartitions=4)
+
+# Cálculo paralelo usando Dask
+start_time = time.time()
+mean_parallel = ddf.mean().compute()
+parallel_time = time.time() - start_time
+
+print(f"Media paralela:\n{mean_parallel}\nTiempo: {parallel_time} segundos")
+```
+Comparación de Rendimiento
+
+Dask puede mejorar significativamente el rendimiento en grandes conjuntos de datos, especialmente en sistemas con varios núcleos de CPU. En este ejemplo, podemos comparar los tiempos de ejecución y observar la ganancia obtenida al paralelizar la operación.
+
+Si su dataset es aún más grande o tiene una arquitectura de CPU con más núcleos, puede experimentar una mayor mejora en el rendimiento.

@@ -60,7 +60,7 @@ Dask es una libreria de Python de codigo abierto, que sirve para realizar comput
 
 Para la instalacion debemos usar el instalador de paquetes de Python (pip) e introducir el siguiente comando:
 
-python```
+```python
 pip install dask
 ```
 

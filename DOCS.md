@@ -35,17 +35,20 @@ Las características con las que cuenta el dataset son:
 
 | Característica     | Descripción                                                                 |
 |--------------|-----------------------------------------------------------------------------|
-| dur      | Duración de la conexión en segundos.                                         |
-| proto    | Protocolo de comunicación utilizado (ej. TCP, UDP, ICMP).                   |
-| dir      | Dirección del flujo de tráfico (ej. → si es de origen a destino, o ← si es de destino a origen). |
-| state    | Estado de la conexión (ej. CON para conexiones establecidas, INT para interrumpidas). |
-| stos / dtos | Tipo de servicio (ToS) del tráfico enviado y recibido. Son valores que indican la prioridad del paquete en la red. |
-| tot_pkts | Número total de paquetes enviados en la conexión.                           |
-| tot_bytes| Número total de bytes transferidos.                                         |
-| src_bytes| Cantidad de bytes enviados desde la IP de origen.                            |
-| label    | Etiqueta que indica si el tráfico es normal o pertenece a una botnet (tráfico malicioso). |
-| Family   | Especie de botnet detectada (ej. Neris, Rbot, Virut, Murlo, etc.).           |
-
+| Dur      | Duración de la conexión en segundos.                                         |
+| Proto    | Protocolo de comunicación utilizado (ej. TCP, UDP, ICMP).                   |
+| Dir      | Dirección del flujo de tráfico (ej. → si es de origen a destino, o ← si es de destino a origen). |
+| SrcAddr  | Dirección IP de origen (dirección del dispositivo que envía el tráfico). |
+| Sport    | Puerto de origen utilizado para la comunicación. |
+| DstAddr  | Dirección IP de destino (dirección del dispositivo receptor). |
+| DstPort  | Puerto de destino utilizado para la comunicación.|
+| State    | Estado de la conexión (ej. CON para conexiones establecidas, INT para interrumpidas). |
+| sTos	  | Tipo de servicio (ToS) del paquete enviado por el origen (campo en el encabezado IP). |
+| dTos	  | Tipo de servicio (ToS) del paquete enviado por el destino. |
+| TotPkts  | Número total de paquetes transmitidos durante el flujo. |
+| TotBytes | Número total de bytes transmitidos en ambos sentidos. |
+| SrcBytes | Número de bytes enviados desde el origen al destino. |
+| Label | Etiqueta que describe la naturaleza del flujo (Background, From-Botnet, etc.). |
 ---
 
 # ***DASK, Libreria de Python***

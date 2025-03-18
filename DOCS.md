@@ -98,7 +98,26 @@ parallel_time = time.time() - start_time
 
 print(f"Media paralela:\n{mean_parallel}\nTiempo: {parallel_time} segundos")
 ```
-Comparación de Rendimiento
+## ***Comparación de Rendimiento***
+
+```
+Media secuencial (Usando pandas)
+col_0    0.499924
+col_1    0.499979
+col_2    0.500116
+col_3    0.500160
+col_4    0.500008
+dtype: float64
+Tiempo: 0.25031352043151855 segundos
+Media paralela (Usando dask)
+col_0    0.499924
+col_1    0.499979
+col_2    0.500116
+col_3     0.50016
+col_4    0.500008
+dtype: Float64
+Tiempo: 0.13022160530090332 segundos
+```
 
 Dask puede mejorar significativamente el rendimiento en grandes conjuntos de datos, especialmente en sistemas con varios núcleos de CPU. En este ejemplo, podemos comparar los tiempos de ejecución y observar la ganancia obtenida al paralelizar la operación.
 

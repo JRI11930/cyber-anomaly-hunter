@@ -45,3 +45,80 @@ Las características con las que cuenta el dataset son:
 | src_bytes| Cantidad de bytes enviados desde la IP de origen.                            |
 | label    | Etiqueta que indica si el tráfico es normal o pertenece a una botnet (tráfico malicioso). |
 | Family   | Especie de botnet detectada (ej. Neris, Rbot, Virut, Murlo, etc.).           |
+
+---
+
+# ***DASK, Libreria de Python***
+
+Dask es una libreria de Python de codigo abierto, que sirve para realizar computo paralelo, esta libreria permite el uso optimo del CPU asi como la administracion de memoria eficiente. En particular se usa para procesar conjuntos de datos muy grandes donde el tiempo de procesamiento implica deficiencias.
+
+### Algunas caracteristicas de Dask son:
+- Computo concurrente: Permite el manejo de diferentes que se pueden llevar a cabo de manera paralela para reducir el tiempo de procesamiento, Dask hace uso de los nucleos que el CPU permita asignar tareas para poder reducir la carga de trabajo.
+- Tareas dinamicas usando grafos: Dask usa una representacion de un grafo aciclico, es decir, cada nodo representa una de las operaciones en las que se dividio la tarea y cada enlace representa la dependencia entre ellas. Este grafo se construye de manera dinamica lo cual ayuda a optimizar las operaciones que se llevan en paralelo
+
+# ***Instalacion de Dask***
+
+Para la instalacion debemos usar el instalador de paquetes de Python (pip) e introducir el siguiente comando:
+
+```python
+pip install dask
+```
+## ***Creando un DataFrame Grande***
+
+Vamos a generar un conjunto de datos grande utilizando pandas y convertirlo en un DataFrame de Dask:
+```python
+# Crear un DataFrame grande con pandas
+num_rows = 10**7
+num_cols = 5
+data = {f"col_{i}": np.random.rand(num_rows) for i in range(num_cols)}
+df = pd.DataFrame(data)
+```
+## ***Cálculo Secuencial con pandas***
+
+Primero, realizaremos un cálculo secuencial utilizando pandas para calcular la media de los datos:
+```python
+# Cálculo secuencial usando pandas
+start_time = time.time()
+mean_sequential = df.mean()
+sequential_time = time.time() - start_time
+
+print(f"Media secuencial:\n{mean_sequential}\nTiempo: {sequential_time} segundos")
+```
+## ***Cálculo Paralelo con Dask***
+
+Ahora, utilizaremos Dask para dividir el conjunto de datos en partes (particiones) y realizar el cálculo de manera paralela:
+```python
+# Convertir el DataFrame de pandas a un DataFrame de Dask
+ddf = dd.from_pandas(df, npartitions=4)
+
+# Cálculo paralelo usando Dask
+start_time = time.time()
+mean_parallel = ddf.mean().compute()
+parallel_time = time.time() - start_time
+
+print(f"Media paralela:\n{mean_parallel}\nTiempo: {parallel_time} segundos")
+```
+## ***Comparación de Rendimiento***
+
+```
+Media secuencial (Usando pandas)
+col_0    0.499924
+col_1    0.499979
+col_2    0.500116
+col_3    0.500160
+col_4    0.500008
+dtype: float64
+Tiempo: 0.25031352043151855 segundos
+Media paralela (Usando dask)
+col_0    0.499924
+col_1    0.499979
+col_2    0.500116
+col_3     0.50016
+col_4    0.500008
+dtype: Float64
+Tiempo: 0.13022160530090332 segundos
+```
+
+Dask puede mejorar significativamente el rendimiento en grandes conjuntos de datos, especialmente en sistemas con varios núcleos de CPU. En este ejemplo, podemos comparar los tiempos de ejecución y observar la ganancia obtenida al paralelizar la operación.
+
+Si el dataset es aún más grande o tiene una arquitectura de CPU con más núcleos, puede experimentar una mayor mejora en el rendimiento.

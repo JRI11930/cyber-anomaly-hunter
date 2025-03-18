@@ -121,4 +121,4 @@ Tiempo: 0.13022160530090332 segundos
 
 Dask puede mejorar significativamente el rendimiento en grandes conjuntos de datos, especialmente en sistemas con varios núcleos de CPU. En este ejemplo, podemos comparar los tiempos de ejecución y observar la ganancia obtenida al paralelizar la operación.
 
-Si su dataset es aún más grande o tiene una arquitectura de CPU con más núcleos, puede experimentar una mayor mejora en el rendimiento.
+Si el dataset es aún más grande o tiene una arquitectura de CPU con más núcleos, puede experimentar una mayor mejora en el rendimiento.

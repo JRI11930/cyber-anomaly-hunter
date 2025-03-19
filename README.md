@@ -29,6 +29,5 @@ Para el desarrollo de este proyecto se sigue la metodología CRISP-DM. Puedes en
 📌 Proyecto desarrollado en el marco del **Samsung Innovation Campus 2024**. 
 
 👥 Desarrollado por: 
-- [Jorge Octavio Nicolas Diaz]()
-- [Daniela Sabrina Reyes Rivera]()
-- José **Armando** Ramírez **Islas** [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](www.linkedin.com/in/armando-islas).
+- **Jorge Octavio** Nicolas Diaz [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/jorge-octavio-nicolas-diaz/).
+- José **Armando** Ramírez **Islas** [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/armando-islas/).

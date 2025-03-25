@@ -6,6 +6,7 @@ from io import StringIO  # Importando StringIO desde io
 
 # Define los escenarios
 escenarios = [48, 49, 50, 51, 53, 54]
+lista_escenarios = {48 : 'Sogou', 49 : 'Murlo', 50 : 'Neris', 51 : 'RBot', 53 : 'NsisAy', 54 :'Virut'}
 
 # Función para extraer el enlace .binetflow de una URL
 def extraer_enlace_binetflow(escenario):
@@ -39,6 +40,9 @@ def procesar_binetflow(url, escenario):
         
         try:
             df = pd.read_csv(StringIO(response.text), sep=',', low_memory=False)
+            # Agregar la etiqueta del tipo de botnet
+            if escenario in lista_escenarios:
+                df['BOTNET_NAME'] = lista_escenarios[escenario]
             df.to_csv(f"./data/escenario_{escenario}_procesado.csv", index=False)
             print(f"Datos procesados: {df.shape[0]} filas, {df.shape[1]} columnas")
             return df

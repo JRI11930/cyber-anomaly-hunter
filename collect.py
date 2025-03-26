@@ -40,7 +40,6 @@ def procesar_binetflow(url, escenario):
         
         try:
             df = pd.read_csv(StringIO(response.text), sep=',', low_memory=False)
-            # Agregar la etiqueta del tipo de botnet
             if escenario in lista_escenarios:
                 df['BOTNET_NAME'] = lista_escenarios[escenario]
             df.to_csv(f"./data/escenario_{escenario}_procesado.csv", index=False)

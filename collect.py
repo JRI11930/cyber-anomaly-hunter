@@ -5,8 +5,8 @@ import os
 from io import StringIO  # Importando StringIO desde io
 
 # Define los escenarios
-escenarios = [48, 49, 50, 51, 53, 54]
-lista_escenarios = {48 : 'Sogou', 49 : 'Murlo', 50 : 'Neris', 51 : 'RBot', 53 : 'NsisAy', 54 :'Virut'}
+escenarios = [49, 50, 51, 46, 54]
+lista_escenarios = {49 : 'Murlo', 50 : 'Neris', 51 : 'RBot', 46 : 'Virut', 54 :'Virut'}
 
 # Función para extraer el enlace .binetflow de una URL
 def extraer_enlace_binetflow(escenario):
